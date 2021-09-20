@@ -788,7 +788,7 @@
         function totalAvailable(tpsToken){
             tpsToken.methods.totalSupply().call().then(i => {
                 console.log("Total Available: " + i);
-                document.getElementById("total_available").innerHTML = "Total Available: " + i;
+                document.getElementById("total_available").innerHTML = "Total Minted: " + i;
             });
         }
 
@@ -813,7 +813,9 @@
 
                 tpsToken.methods.balanceOf(address).call().then(i => {
                     console.log("Total owned by acocunt: " + i);
-                    if(i + parseInt(amount) > 20){
+                    if(parseInt(i) + parseInt(amount) > 20){
+                        console.log(i + parseInt(amount))
+                        console.log(i + " + " + parseInt(amount) )
                         console.log("This will take you over the max mint amount")
                         document.getElementById("message_area").innerHTML = "This will take you over the max mint amount";
                         return;
