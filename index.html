@@ -819,12 +819,12 @@
                         return;
                     }
 
-                    mint(amount, tpsToken)
+                    mint(amount, tpsToken, web3)
                 });
             })
         }
 
-        function mint(amount, tpsToken){
+        function mint(amount, tpsToken, web3){
             const price = web3.utils.toWei((amount * .06).toString())
 
             tpsToken.methods.mint(amount).send({from: address, value: price})
